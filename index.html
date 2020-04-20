@@ -17,8 +17,29 @@
                 speed : 800,    // 무빙 속도
                 offset : 80     // 웹페이지 상단에서 부터의 거리
             });
+          
+            
+            $(".btm_image").click(function(){
+                var temp = $.trim(   $(this).html()  ) ;
+                if(temp=='<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">'){
+                    $(this).html('<img src="img/aside/star_off.jpg" title="아이유 팬맺기" width="14" height="14">');
+                }
+                else{
+                    $(this).html('<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">');
+                }
+            });
+            $(".btm_image1").click(function(){
+                var temp = $.trim(   $(this).html()  ) ;
+                if(temp=='<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">'){
+                    $(this).html('<img src="img/aside/star_off.jpg" title="아이유 팬맺기" width="14" height="14">');
+                }
+                else{
+                    $(this).html('<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">');
+                }
+            });
         });
     </script>
+    
     <!-- 초기화 -->
     <style>
         *{margin:0; padding:0; box-sizing: border-box;}
@@ -365,6 +386,23 @@
             text-overflow: ellipsis;
             font-size:13px;            
         }
+        
+        .description > .melon_line > li.singer > .btm_image{
+            float: right;
+            margin-right: 20px;
+            margin-top: 0;
+            margin-bottom: 4px;
+            border-style: none;
+            background: none;
+    }
+         button.btm_image1{
+            float: right;
+            margin-right: 24px;
+            margin-top:3px;
+            border-style: none;
+            background: none;
+    }
+
                     
         ul.melon_line{width: 300px;}
         .description > ul.even{background-color: rgb(230, 227, 227);}
@@ -378,6 +416,7 @@
             float: left;
             margin-left: 10px;
             margin-top: 25px;
+            overflow:hidden;
         }
         /* aside 차트 버튼 */
         input.melon1{display:none;}
@@ -495,7 +534,6 @@
     </style>
 </head>
 <body>
-    <!-- aside side바 -->
     <div id="side_banner">
         <div id="banner">
             <div class="side_title">
@@ -1038,7 +1076,9 @@
                                         </div>
                                         <div class="description2" style="width: 135px;">
                                             <strong class="song1">방탄소년단</strong>
-                                            <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 2px; margin-bottom: -1px;"><img src="img/aside/star.png" title="방탄소년단 팬맺기" width="14" height="14"></button>
+                                            <button type="button" class="btm_image1" id="img_btn1">
+                                                <img src="img/aside/star.png" title="방탄소년단 팬맺기" width="14" height="14"/>
+                                            </button>
                                         </div>
                                     </li>
                                 </ul>
@@ -1050,7 +1090,9 @@
                                     <li class="numb" style="color:yellowgreen;"><strong><i style="margin-left: 16px;">2</i></strong></li>
                                     <li class="song">아이유</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn2">
+                                            <img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1061,7 +1103,9 @@
                                     <li class="numb" style="color:yellowgreen;"><strong><i style="margin-left: 16px;">3</i></strong></li>
                                     <li class="song">강다니엘</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="강다니엘 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn3">
+                                            <img src="img/aside/star.jpg" title="강다니엘 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1072,7 +1116,9 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">4</i></strong></li>
                                     <li class="song">옹성우</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="옹성우 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn4">
+                                            <img src="img/aside/star.jpg" title="옹성우 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1083,7 +1129,9 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">5</i></strong></li>
                                     <li class="song">엠씨더맥스 (M.C the MAX)</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="엠씨더맥스 (M.C the MAX) 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn5">
+                                            <img src="img/aside/star.jpg" title="엠씨더맥스 (M.C the MAX) 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1094,7 +1142,9 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">6</i></strong></li>
                                     <li class="song">임영웅</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="임영웅 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn6">
+                                            <img src="img/aside/star.jpg" title="임영웅 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1105,7 +1155,9 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">7</i></strong></li>
                                     <li class="song">NCT 127</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="NCT 127 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn7">
+                                            <img src="img/aside/star.jpg" title="NCT 127 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1116,7 +1168,9 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">8</i></strong></li>
                                     <li class="song">송가인</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="송가인 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn8">
+                                            <img src="img/aside/star.jpg" title="송가인 팬맺기" width="14" height="14"/>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>  
@@ -1127,7 +1181,7 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">9</i></strong></li>
                                     <li class="song">가호 (Gaho)</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="가호 (Gaho) 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn9"><img src="img/aside/star.jpg" title="가호 (Gaho) 팬맺기" width="14" height="14"/></button>
                                     </li>
                                 </ul>
                             </div>
@@ -1138,7 +1192,7 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">10</i></strong></li>
                                     <li class="song">IZ*ONE (아이즈원)</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn" style="float: right; margin-right: 20px; margin-top: 0; margin-bottom: -4px;"><img src="img/aside/star.jpg" title="IZ*ONE (아이즈원) 팬맺기" width="14" height="14"></button>
+                                        <button type="button" class="btm_image" id="img_btn10"><img src="img/aside/star.jpg" title="IZ*ONE (아이즈원) 팬맺기" width="14" height="14"/></button>
                                     </li>
                                 </ul>
                             </div>
@@ -1146,7 +1200,6 @@
                     </ul> 
                 </div>
             </div>
-            <!-- 실시간 그래프 -->
             <div id="placeholder" style="width:300px;height:300px;margin: 15px 22.5px 0px 22.5px; position: relative;">
                 <script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
                 <script>
@@ -1218,9 +1271,8 @@
                         }
                     });
                 });
-                </script> 
+                </script> <!-- 그래프 끝 -->
             </div>
-            <!-- 그래프 끝 -->
             <form class="aside_content">
                 <div class="product_search">
                     <h3>전체 게시판</h3>
