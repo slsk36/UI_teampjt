@@ -17,29 +17,8 @@
                 speed : 800,    // 무빙 속도
                 offset : 80     // 웹페이지 상단에서 부터의 거리
             });
-          
-            
-            $(".btm_image").click(function(){
-                var temp = $.trim(   $(this).html()  ) ;
-                if(temp=='<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">'){
-                    $(this).html('<img src="img/aside/star_off.jpg" title="아이유 팬맺기" width="14" height="14">');
-                }
-                else{
-                    $(this).html('<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">');
-                }
-            });
-            $(".btm_image1").click(function(){
-                var temp = $.trim(   $(this).html()  ) ;
-                if(temp=='<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">'){
-                    $(this).html('<img src="img/aside/star_off.jpg" title="아이유 팬맺기" width="14" height="14">');
-                }
-                else{
-                    $(this).html('<img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14">');
-                }
-            });
         });
     </script>
-    
     <!-- 초기화 -->
     <style>
         *{margin:0; padding:0; box-sizing: border-box;}
@@ -76,6 +55,7 @@
             margin: 0 auto;
             position: relative;
         }
+        input[type=checkbox]{display: none;}
     </style>
 
     <!-- 플로팅 라이트 바 -->
@@ -329,26 +309,61 @@
             overflow: hidden;
             margin: 0 24px;
         }
+        /* aside 차트 버튼 */
+        input.melon1{display:none;}
+        input.melon1 ~ div.melon_content1{display:none;}
+        input.melon1:checked ~ div.melon_content1{display:block;} 
+
+        input.melon2{display:none;}
+        input.melon2 ~ div.melon_content2{display:none;}
+        input.melon2:checked ~ div.melon_content2{display:block;} 
+
+        input.melon3{display:none;}
+        input.melon3 ~ div.melon_content3{display:none;}
+        input.melon3:checked ~ div.melon_content3{display:block;} 
+
+        section.buttons{overflow:hidden;}
+        section.buttons > label{
+            display: block; float: left;
+            width: 100px; height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            border-style: solid;    
+            border-width: 1px;
+            border-color: lightgray transparent lightgray lightgray;
+            font-weight: bold;
+            color: grey;
+        }
+        input.melon1:checked ~ section.buttons > label.melon_label1{
+            color: yellowgreen;
+            border-top: 2px solid yellowgreen;
+        }
+        input.melon2:checked ~ section.buttons > label.melon_label2{
+            color: yellowgreen;
+            border-top: 2px solid yellowgreen;
+        }
+        input.melon3:checked ~ section.buttons > label.melon_label3{
+            color: yellowgreen;
+            border-top: 2px solid yellowgreen;
+        }
+        /* aside 차트 */
         .description{
-            width:300px;
-            overflow:hidden;
+            width: 300px;
+            overflow: hidden;
             border-bottom: 1px solid lightgray;
             border-left: 1px solid lightgray;
             border-right: 1px solid lightgray;
         }
-        /* aside 차트 */
         .description > ul{
             overflow: hidden;
         }
         .description > ul > li{
             float: left;
             padding: 8px 0;
-            /*border-color:black;*/
         }
         .description > ul > li.numb1{
             width: 70px;
-            border-width: 1px;
-            /*border-color: transparent transparent transparent transparent;*/
             font-size:25px;  
             padding:25.5px 0;
         }
@@ -366,7 +381,6 @@
             text-overflow: ellipsis;
             font-size:14px;           
         }
-
         .description > ul > li.numb{
             width: 70px;
             font-size:13px;  
@@ -386,24 +400,6 @@
             text-overflow: ellipsis;
             font-size:13px;            
         }
-        
-        .description > .melon_line > li.singer > .btm_image{
-            float: right;
-            margin-right: 20px;
-            margin-top: 0;
-            margin-bottom: 4px;
-            border-style: none;
-            background: none;
-    }
-         button.btm_image1{
-            float: right;
-            margin-right: 24px;
-            margin-top:3px;
-            border-style: none;
-            background: none;
-    }
-
-                    
         ul.melon_line{width: 300px;}
         .description > ul.even{background-color: rgb(230, 227, 227);}
         .thumbnail{float:left;}
@@ -416,46 +412,39 @@
             float: left;
             margin-left: 10px;
             margin-top: 25px;
-            overflow:hidden;
         }
-        /* aside 차트 버튼 */
-        input.melon1{display:none;}
-        input.melon1 ~ div.melon_content1{display:none;}
-        input.melon1:checked ~ div.melon_content1{display:block;} 
 
-        input.melon2{display:none;}
-        input.melon2 ~ div.melon_content2{display:none;}
-        input.melon2:checked ~ div.melon_content2{display:block;} 
+        .btm_image+label{
+            display: block;
+            cursor: pointer;
+            float: right;
+            margin-right: 20px;
+            margin-top: 2px;
+            border-style: none;
+            width: 14px; height: 14px;
+        }
 
-        input.melon3{display:none;}
-        input.melon3 ~ div.melon_content3{display:none;}
-        input.melon3:checked ~ div.melon_content3{display:block;} 
+        #img_btn1+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn2+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn3+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn4+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn5+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn6+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn7+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn8+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn9+label{background: url(./img/aside/star.png); background-size: 14px;}
+        #img_btn10+label{background: url(./img/aside/star.png); background-size: 14px;}
 
-        section.buttons{overflow:hidden;}
-        section.buttons > label{
-            display: block; float: left;
-            width: 100px; height: 30px;
-            /* line-height: 20px; */
-            text-align: center;
-            font-size: 14px;
-            border-top: 1px solid lightgray;
-            border-left: 1px solid lightgray;
-            border-bottom: 1px solid lightgray;
-            font-weight: bold;
-            color: grey;
-        }
-        input.melon1:checked ~ section.buttons > label.melon_label1{
-            color: yellowgreen;
-            border-top: 2px solid yellowgreen;
-        }
-        input.melon2:checked ~ section.buttons > label.melon_label2{
-            color: yellowgreen;
-            border-top: 2px solid yellowgreen;
-        }
-        input.melon3:checked ~ section.buttons > label.melon_label3{
-            color: yellowgreen;
-            border-top: 2px solid yellowgreen;
-        }
+        #img_btn1:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn2:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn3:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn4:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn5:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn6:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn7:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn8:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn9:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
+        #img_btn10:checked+label{background: url(./img/aside/star_off.png); background-size: 14px;}
 
         /* 그래프 내부 스타일 */
         div#tooltip{
@@ -992,10 +981,10 @@
                         </li>
                         <li class="item">
                             <div class="description">
-                                <ul class="melon_line">
+                                <ul clas="melon_line">
                                     <li class="numb" style="color:yellowgreen;"><strong><i style="margin-left: 16px;">3</i></strong></li>
                                     <li class="song">Maniac</li>
-                                    <li class="singer">Conan Gray</li>
+                                    <li class="singer" style="width: 93px;">Conan Gray</li>
                                 </ul>
                             </div>
                         </li>
@@ -1028,10 +1017,10 @@
                         </li>
                         <li class="item">
                             <div class="description">
-                                <ul class="melon_line">
+                                <ul clas="melon_line">
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">7</i></strong></li>
                                     <li class="song">Painkiller</li>
-                                    <li class="singer">Ruel</li>
+                                    <li class="singer" style="width: 93px;">Ruel</li>
                                 </ul>
                             </div>
                         </li>
@@ -1074,11 +1063,10 @@
                                         <div class="thumbnail">
                                             <img src="img/aside/third_cover.jpg" width="65" height="65">
                                         </div>
-                                        <div class="description2" style="width: 135px;">
+                                        <div class="description2" style="width: 155px;">
                                             <strong class="song1">방탄소년단</strong>
-                                            <button type="button" class="btm_image1" id="img_btn1">
-                                                <img src="img/aside/star.png" title="방탄소년단 팬맺기" width="14" height="14"/>
-                                            </button>
+                                            <input type="checkbox" class="btm_image" id="img_btn1" style="float: right; margin-right: 2px; padding-bottom: -1px; border: 0px;">
+                                            <label for="img_btn1" title="방탄소년단 팬맺기"></label>
                                         </div>
                                     </li>
                                 </ul>
@@ -1090,9 +1078,8 @@
                                     <li class="numb" style="color:yellowgreen;"><strong><i style="margin-left: 16px;">2</i></strong></li>
                                     <li class="song">아이유</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn2">
-                                            <img src="img/aside/star.jpg" title="아이유 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn2" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn2" title="아이유 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1103,9 +1090,8 @@
                                     <li class="numb" style="color:yellowgreen;"><strong><i style="margin-left: 16px;">3</i></strong></li>
                                     <li class="song">강다니엘</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn3">
-                                            <img src="img/aside/star.jpg" title="강다니엘 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn3" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn3" title="강다니엘 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1116,9 +1102,8 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">4</i></strong></li>
                                     <li class="song">옹성우</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn4">
-                                            <img src="img/aside/star.jpg" title="옹성우 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn4" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn4" title="옹성우 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1129,9 +1114,8 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">5</i></strong></li>
                                     <li class="song">엠씨더맥스 (M.C the MAX)</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn5">
-                                            <img src="img/aside/star.jpg" title="엠씨더맥스 (M.C the MAX) 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn5" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn5" title="엠씨더맥스 (M.C the MAX) 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1142,9 +1126,8 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">6</i></strong></li>
                                     <li class="song">임영웅</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn6">
-                                            <img src="img/aside/star.jpg" title="임영웅 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn6" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn6" title="임영웅 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1155,9 +1138,8 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">7</i></strong></li>
                                     <li class="song">NCT 127</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn7">
-                                            <img src="img/aside/star.jpg" title="NCT 127 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn7" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn7" title="NCT 127 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1168,9 +1150,8 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">8</i></strong></li>
                                     <li class="song">송가인</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn8">
-                                            <img src="img/aside/star.jpg" title="송가인 팬맺기" width="14" height="14"/>
-                                        </button>
+                                        <input type="checkbox" class="btm_image" id="img_btn8" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn8" title="송가인 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>  
@@ -1181,7 +1162,8 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">9</i></strong></li>
                                     <li class="song">가호 (Gaho)</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn9"><img src="img/aside/star.jpg" title="가호 (Gaho) 팬맺기" width="14" height="14"/></button>
+                                        <input type="checkbox" class="btm_image" id="img_btn9" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn9" title="가호 (Gaho) 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
@@ -1192,11 +1174,12 @@
                                     <li class="numb" style="color:gray;"><strong><i style="margin-left: 16px;">10</i></strong></li>
                                     <li class="song">IZ*ONE (아이즈원)</li>
                                     <li class="singer">
-                                        <button type="button" class="btm_image" id="img_btn10"><img src="img/aside/star.jpg" title="IZ*ONE (아이즈원) 팬맺기" width="14" height="14"/></button>
+                                        <input type="checkbox" class="btm_image" id="img_btn10" style="float: right; margin-right: 20px; padding-top: 0; padding-bottom: -4px; border: 0px;">
+                                        <label for="img_btn10" title="IZ*ONE (아이즈원) 팬맺기"></label>
                                     </li>
                                 </ul>
                             </div>
-                        </li>                                                                              
+                        </li>
                     </ul> 
                 </div>
             </div>
@@ -1249,7 +1232,7 @@
                 
                     $("<div id='tooltip'></div>").css({
                         position: "absolute",
-                        display: "block",
+                        display: "none",
                         padding: "2px",
                         "background-color": "#d3e9a5",
                         opacity: 0.80
